@@ -54,7 +54,7 @@ impl Default for Config {
 
 #[init]
 fn init(config_dir: RString) -> Config {
-    match fs::read_to_string(format!("{}/websearch.ron", config_dir)) {
+    match fs::read_to_string(format!("{}/websearchengines.ron", config_dir)) {
         Ok(content) => ron::from_str(&content).unwrap_or_default(),
         Err(_) => Config::default(),
     }
@@ -63,7 +63,7 @@ fn init(config_dir: RString) -> Config {
 #[info]
 fn info() -> PluginInfo {
     PluginInfo {
-        name: "Websearch".into(),
+        name: "Websearchengines".into(),
         icon: "help-about".into(),
     }
 }
