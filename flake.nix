@@ -7,6 +7,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     rust-overlay,
   }: let
@@ -60,8 +61,8 @@
           # '';
         };
       in {
-        default = myRustApp;
         websearchengines = myRustApp;
+        default = myRustApp;
       }
     );
   };
